@@ -24,10 +24,10 @@ public class ScaptchValidateServlet extends HttpServlet {
 
 		response.setContentType("text/html;charset=utf-8");
 		Cookie[] s = request.getCookies();
-		System.out.println(s[0].getPath());
-		System.out.println(s[0].getMaxAge());
-		System.out.println(s[0].getName());
-		String validateC = s[0].getValue();
+		System.out.println(s[1].getPath());
+		System.out.println(s[1].getMaxAge());
+		System.out.println(s[1].getName());
+		String validateC = s[1].getValue();
 		String veryCode = request.getParameter("c");
 		PrintWriter out = response.getWriter();
 		if(veryCode==null||"".equals(veryCode)){

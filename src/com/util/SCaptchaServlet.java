@@ -25,9 +25,12 @@ public class SCaptchaServlet extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache");  
         response.setDateHeader("Expires", 0);  
         SCaptcha instance = new SCaptcha();  
-        Cookie cookie = new Cookie("scaptcha", instance.getCode());  
-        cookie.setMaxAge(1800);  
-        response.addCookie(cookie);  
+        Cookie cookie = new Cookie("scaptcha", instance.getCode());
+        Cookie cookie2 = new Cookie("dd", "ceshish");  
+        cookie.setMaxAge(1800); 
+        cookie2.setMaxAge(10);
+        response.addCookie(cookie);
+        response.addCookie(cookie2);  
         instance.write(response.getOutputStream());  
     }  
 }  

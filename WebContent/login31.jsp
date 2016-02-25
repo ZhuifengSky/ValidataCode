@@ -27,7 +27,6 @@
 
 	function isRightCode() {
 		var code = $("#veryCode").val();
-		alert(code);
 		code = "c=" + code;
 		$.ajax({
 			type : "POST",
@@ -39,14 +38,21 @@
 
 	function callback(data) {
 		$("#info").html(data);
+		var msg = $("#info").val();
+		if(msg !="验证码正确"){
+			$("#info").css("color","red");			
+		}else{
+			$("#info").css("color","green");	
+		}	
+		
 	}
 </script>
 </head>
 <body>
-	 <input id="veryCode" name="veryCode" type="text"/>  
+	 <input id="veryCode" name="veryCode" type="text" />  
      <img id="imgObj" alt="valiCode" src="sCaptcha.jpg"/>  
-	 <a href="javascript:changeImg()">换一张</a>  
-	 <input type="button" value="验证" onclick="isRightCode()"/>  
+	 <font color="grey">看不清? &nbsp;</font><a href="javascript:changeImg()">换一张</a>
+	 <input type="button" value="验证" onclick="isRightCode()"/>   
 	 <div id="info"></div>  
 	
 </body>
